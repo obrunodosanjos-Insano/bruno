@@ -137,13 +137,13 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/70 backdrop-blur-xs animate-fadeIn overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/70 backdrop-blur-md animate-fadeIn overflow-y-auto">
       <div 
-        className="bg-white rounded-3xl w-full max-w-xl shadow-2xl border border-stone-200 overflow-hidden my-8 max-h-[90vh] flex flex-col"
+        className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 rounded-3xl w-full max-w-xl shadow-2xl border border-stone-200 dark:border-stone-800 overflow-hidden my-8 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-stone-950 text-white p-5 sm:p-6 flex items-center justify-between relative shrink-0">
+        <div className="bg-stone-950 dark:bg-stone-950 text-white p-5 sm:p-6 flex items-center justify-between relative shrink-0 border-b border-stone-800">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-amber-400 text-stone-950 flex items-center justify-center font-bold text-xl shadow-md font-display">
               {profile && profile.name ? profile.name.charAt(0).toUpperCase() : <User className="w-6 h-6" />}
@@ -174,8 +174,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
         {/* Success Alert */}
         {savedSuccess && (
-          <div className="bg-emerald-50 border-b border-emerald-200 text-emerald-900 px-6 py-2.5 text-xs font-semibold flex items-center gap-2 animate-fadeIn">
-            <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="bg-emerald-50 dark:bg-emerald-950/60 border-b border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 px-6 py-2.5 text-xs font-semibold flex items-center gap-2 animate-fadeIn">
+            <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>Perfil salvo com sucesso! Seus dados já estão atualizados.</span>
           </div>
         )}
@@ -213,35 +213,35 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
 
               {/* Personal Details */}
-              <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200/80 space-y-3 text-xs">
-                <div className="flex items-center justify-between border-b border-stone-200 pb-2">
-                  <h4 className="font-bold font-display text-stone-900 text-sm flex items-center gap-2">
-                    <User className="w-4 h-4 text-stone-700" />
+              <div className="bg-stone-50 dark:bg-stone-800/80 rounded-2xl p-4 border border-stone-200/80 dark:border-stone-700/80 space-y-3 text-xs">
+                <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-700 pb-2">
+                  <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2">
+                    <User className="w-4 h-4 text-stone-700 dark:text-stone-300" />
                     <span>Dados Pessoais</span>
                   </h4>
                   <button
                     onClick={() => setIsEditing(true)}
-                    className="text-stone-700 hover:text-stone-950 font-bold flex items-center gap-1 hover:underline cursor-pointer"
+                    className="text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white font-bold flex items-center gap-1 hover:underline cursor-pointer"
                   >
                     <Edit2 className="w-3.5 h-3.5" />
                     <span>Editar</span>
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700 dark:text-stone-300">
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-stone-400 shrink-0" />
                     <div>
-                      <span className="text-[10px] text-stone-400 block">E-mail</span>
-                      <span className="font-medium text-stone-900">{profile.email}</span>
+                      <span className="text-[10px] text-stone-400 dark:text-stone-500 block">E-mail</span>
+                      <span className="font-medium text-stone-900 dark:text-stone-100">{profile.email}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-stone-400 shrink-0" />
                     <div>
-                      <span className="text-[10px] text-stone-400 block">Telefone / WhatsApp</span>
-                      <span className="font-medium text-stone-900">{profile.phone}</span>
+                      <span className="text-[10px] text-stone-400 dark:text-stone-500 block">Telefone / WhatsApp</span>
+                      <span className="font-medium text-stone-900 dark:text-stone-100">{profile.phone}</span>
                     </div>
                   </div>
 
@@ -249,8 +249,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-stone-400 shrink-0" />
                       <div>
-                        <span className="text-[10px] text-stone-400 block">Aniversário</span>
-                        <span className="font-medium text-stone-900">{profile.birthdate}</span>
+                        <span className="text-[10px] text-stone-400 dark:text-stone-500 block">Aniversário</span>
+                        <span className="font-medium text-stone-900 dark:text-stone-100">{profile.birthdate}</span>
                       </div>
                     </div>
                   )}
@@ -258,34 +258,34 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
 
               {/* Preferences */}
-              <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200/80 space-y-3 text-xs">
-                <h4 className="font-bold font-display text-stone-900 text-sm flex items-center gap-2 border-b border-stone-200 pb-2">
+              <div className="bg-stone-50 dark:bg-stone-800/80 rounded-2xl p-4 border border-stone-200/80 dark:border-stone-700/80 space-y-3 text-xs">
+                <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2 border-b border-stone-200 dark:border-stone-700 pb-2">
                   <Heart className="w-4 h-4 text-amber-500 fill-amber-500" />
                   <span>Preferências do Cliente</span>
                 </h4>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700 dark:text-stone-300">
                   <div>
-                    <span className="text-[10px] text-stone-400 block mb-0.5">Leite Preferido</span>
-                    <span className="inline-block bg-white border border-stone-200 font-semibold px-2.5 py-1 rounded-lg text-stone-900">
-                      ☕ {getMilkLabel(profile.preferredMilk)}
+                    <span className="text-[10px] text-stone-400 dark:text-stone-500 block mb-0.5">Leite Preferido</span>
+                    <span className="inline-block bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 font-semibold px-2.5 py-1 rounded-lg text-stone-900 dark:text-stone-100">
+                      {getMilkLabel(profile.preferredMilk)}
                     </span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-stone-400 block mb-0.5">Categoria Favorita</span>
-                    <span className="inline-block bg-white border border-stone-200 font-semibold px-2.5 py-1 rounded-lg text-stone-900">
-                      💛 {getCategoryLabel(profile.favoriteCategory)}
+                    <span className="text-[10px] text-stone-400 dark:text-stone-500 block mb-0.5">Categoria Favorita</span>
+                    <span className="inline-block bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 font-semibold px-2.5 py-1 rounded-lg text-stone-900 dark:text-stone-100">
+                      {getCategoryLabel(profile.favoriteCategory)}
                     </span>
                   </div>
                 </div>
 
                 {profile.dietaryRestrictions && profile.dietaryRestrictions.length > 0 && (
                   <div>
-                    <span className="text-[10px] text-stone-400 block mb-1">Dietas / Restrições</span>
+                    <span className="text-[10px] text-stone-400 dark:text-stone-500 block mb-1">Dietas / Restrições</span>
                     <div className="flex flex-wrap gap-1.5">
                       {profile.dietaryRestrictions.map((tag) => (
-                        <span key={tag} className="bg-amber-100 text-amber-900 text-[11px] font-bold px-2 py-0.5 rounded-full border border-amber-200">
+                        <span key={tag} className="bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">
                           ✓ {tag}
                         </span>
                       ))}
@@ -295,28 +295,28 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
 
               {/* Saved Delivery Address */}
-              <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200/80 space-y-2 text-xs">
-                <h4 className="font-bold font-display text-stone-900 text-sm flex items-center gap-2 border-b border-stone-200 pb-2">
-                  <MapPin className="w-4 h-4 text-stone-700" />
+              <div className="bg-stone-50 dark:bg-stone-800/80 rounded-2xl p-4 border border-stone-200/80 dark:border-stone-700/80 space-y-2 text-xs">
+                <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2 border-b border-stone-200 dark:border-stone-700 pb-2">
+                  <MapPin className="w-4 h-4 text-stone-700 dark:text-stone-300" />
                   <span>Endereço de Entrega Padrão</span>
                 </h4>
 
                 {profile.deliveryStreet ? (
-                  <p className="text-stone-800 font-medium leading-relaxed">
+                  <p className="text-stone-800 dark:text-stone-200 font-medium leading-relaxed">
                     {profile.deliveryStreet}, {profile.deliveryNumber}
                     {profile.deliveryComplement ? ` - ${profile.deliveryComplement}` : ''}<br />
                     {profile.deliveryNeighborhood} • {profile.deliveryCity}
                   </p>
                 ) : (
-                  <p className="text-stone-400 italic">Nenhum endereço cadastrado ainda.</p>
+                  <p className="text-stone-400 dark:text-stone-500 italic">Nenhum endereço cadastrado ainda.</p>
                 )}
               </div>
 
               {/* Footer Action buttons */}
-              <div className="flex items-center justify-between pt-2 border-t border-stone-200">
+              <div className="flex items-center justify-between pt-2 border-t border-stone-200 dark:border-stone-800">
                 <button
                   onClick={onDeleteProfile}
-                  className="text-red-600 hover:text-red-700 text-xs font-bold flex items-center gap-1.5 cursor-pointer py-1"
+                  className="text-red-600 hover:text-red-700 dark:text-rose-400 dark:hover:text-rose-300 text-xs font-bold flex items-center gap-1.5 cursor-pointer py-1"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>Excluir Perfil</span>
@@ -324,7 +324,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="px-4 py-2 rounded-full bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs cursor-pointer transition-colors"
+                  className="px-4 py-2 rounded-full bg-stone-950 dark:bg-stone-100 hover:bg-stone-800 dark:hover:bg-white text-white dark:text-stone-950 font-bold text-xs cursor-pointer transition-colors"
                 >
                   Editar Perfil
                 </button>
@@ -335,14 +335,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-5 text-xs">
               {/* Step 1: Personal Info */}
               <div className="space-y-3">
-                <h4 className="font-bold font-display text-stone-900 text-sm flex items-center gap-2 border-b border-stone-200 pb-1.5">
-                  <User className="w-4 h-4 text-stone-800" />
+                <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2 border-b border-stone-200 dark:border-stone-700 pb-1.5">
+                  <User className="w-4 h-4 text-stone-800 dark:text-stone-200" />
                   <span>1. Dados Pessoais</span>
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                    <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1">
                       Nome Completo *
                     </label>
                     <input
@@ -351,12 +351,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ex: Ana Clara Souza"
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                    <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1">
                       E-mail *
                     </label>
                     <input
@@ -365,12 +365,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="ana@email.com"
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                    <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1">
                       Telefone / WhatsApp *
                     </label>
                     <input
@@ -379,12 +379,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="(61) 99999-8888"
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                    <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1">
                       Data de Nascimento (Aniversário)
                     </label>
                     <input
@@ -392,7 +392,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       value={birthdate}
                       onChange={(e) => setBirthdate(e.target.value)}
                       placeholder="DD/MM/AAAA"
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
                 </div>
@@ -400,20 +400,20 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
               {/* Step 2: Coffee & Food Preferences */}
               <div className="space-y-3 pt-2">
-                <h4 className="font-bold font-display text-stone-900 text-sm flex items-center gap-2 border-b border-stone-200 pb-1.5">
-                  <Coffee className="w-4 h-4 text-stone-800" />
+                <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2 border-b border-stone-200 dark:border-stone-700 pb-1.5">
+                  <Coffee className="w-4 h-4 text-stone-800 dark:text-stone-200" />
                   <span>2. Suas Preferências no Tostado</span>
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                    <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1">
                       Leite Padrão Favorito
                     </label>
                     <select
                       value={preferredMilk}
                       onChange={(e) => setPreferredMilk(e.target.value as any)}
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900 bg-white"
+                      className="w-full px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100 bg-white dark:bg-stone-800"
                     >
                       <option value="integral">Leite Integral (Padrão)</option>
                       <option value="desnatado">Leite Desnatado</option>
@@ -424,13 +424,13 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                    <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1">
                       Categoria Favorita do Cardápio
                     </label>
                     <select
                       value={favoriteCategory}
                       onChange={(e) => setFavoriteCategory(e.target.value as CategoryId)}
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900 bg-white"
+                      className="w-full px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100 bg-white dark:bg-stone-800"
                     >
                       <option value="cafes">Cafés Especiais</option>
                       <option value="combos">Combos de Trabalho</option>
@@ -443,7 +443,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-stone-700 block mb-1.5">
+                  <label className="text-[11px] font-semibold text-stone-700 dark:text-stone-300 block mb-1.5">
                     Restrições Alimentares / Dieta
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -461,8 +461,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                           onClick={() => toggleDietaryRestriction(item.id)}
                           className={`px-3 py-1.5 rounded-full font-semibold text-xs border transition-all cursor-pointer ${
                             isSelected
-                              ? 'bg-amber-400 text-stone-950 border-amber-500 shadow-2xs font-bold'
-                              : 'bg-stone-100 text-stone-700 border-stone-200 hover:bg-stone-200'
+                              ? 'bg-amber-400 dark:bg-amber-500 text-stone-950 border-amber-500 shadow-2xs font-bold'
+                              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-750'
                           }`}
                         >
                           {item.label}
@@ -475,72 +475,72 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
               {/* Step 3: Address (Optional for delivery) */}
               <div className="space-y-3 pt-2">
-                <h4 className="font-bold font-display text-stone-900 text-sm flex items-center gap-2 border-b border-stone-200 pb-1.5">
-                  <MapPin className="w-4 h-4 text-stone-800" />
+                <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2 border-b border-stone-200 dark:border-stone-700 pb-1.5">
+                  <MapPin className="w-4 h-4 text-stone-800 dark:text-stone-200" />
                   <span>3. Endereço Padrão de Entrega (Opcional)</span>
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <div className="sm:col-span-2">
-                    <label className="text-[10px] text-stone-600 block mb-0.5">Rua / Logradouro</label>
+                    <label className="text-[10px] text-stone-600 dark:text-stone-400 block mb-0.5">Rua / Logradouro</label>
                     <input
                       type="text"
                       value={deliveryStreet}
                       onChange={(e) => setDeliveryStreet(e.target.value)}
                       placeholder="Ex: SHIS QL 10, Lote 5"
-                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] text-stone-600 block mb-0.5">Número</label>
+                    <label className="text-[10px] text-stone-600 dark:text-stone-400 block mb-0.5">Número</label>
                     <input
                       type="text"
                       value={deliveryNumber}
                       onChange={(e) => setDeliveryNumber(e.target.value)}
                       placeholder="120"
-                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div>
-                    <label className="text-[10px] text-stone-600 block mb-0.5">Bairro</label>
+                    <label className="text-[10px] text-stone-600 dark:text-stone-400 block mb-0.5">Bairro</label>
                     <input
                       type="text"
                       value={deliveryNeighborhood}
                       onChange={(e) => setDeliveryNeighborhood(e.target.value)}
                       placeholder="Lago Sul"
-                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] text-stone-600 block mb-0.5">Cidade / UF</label>
+                    <label className="text-[10px] text-stone-600 dark:text-stone-400 block mb-0.5">Cidade / UF</label>
                     <input
                       type="text"
                       value={deliveryCity}
                       onChange={(e) => setDeliveryCity(e.target.value)}
                       placeholder="Brasília - DF"
-                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 focus:outline-none focus:border-stone-950 text-stone-900"
+                      className="w-full px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 focus:outline-none focus:border-stone-950 dark:focus:border-amber-400 text-stone-900 dark:text-stone-100"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Form Buttons */}
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-stone-200">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-stone-200 dark:border-stone-800">
                 {profile && (
                   <button
                     type="button"
                     onClick={() => setIsEditing(false)}
-                    className="px-4 py-2 rounded-full border border-stone-300 text-stone-700 font-semibold hover:bg-stone-100 transition-colors cursor-pointer"
+                    className="px-4 py-2 rounded-full border border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 font-semibold hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer"
                   >
                     Cancelar
                   </button>
                 )}
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-full bg-stone-950 hover:bg-stone-800 text-white font-bold tracking-wide transition-all shadow-sm cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-stone-950 dark:bg-stone-100 hover:bg-stone-800 dark:hover:bg-white text-white dark:text-stone-950 font-bold tracking-wide transition-all shadow-sm cursor-pointer"
                 >
                   {profile ? 'Salvar Alterações' : 'Criar Perfil e Ganhar Bônus'}
                 </button>

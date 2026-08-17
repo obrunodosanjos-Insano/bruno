@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
               />
               <button
                 type="submit"
-                className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold rounded-xl transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
+                className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold rounded-xl transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Inscrever</span>
                 <Send className="w-3.5 h-3.5" />
@@ -86,9 +86,18 @@ export const Footer: React.FC = () => {
         {/* Col 3 */}
         <div className="space-y-2">
           <h4 className="font-bold text-amber-100 uppercase tracking-wider text-[11px]">Contato & Atendimento</h4>
-          <p className="text-amber-300/80 flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 shrink-0" /> Pontão do Lago Sul - Brasília - DF</p>
-          <p className="text-amber-300/80 flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 shrink-0" /> WhatsApp: (61) 98888-7777</p>
-          <p className="text-amber-300/80 flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 shrink-0" /> contato@tostadocafe.com.br</p>
+          <p className="text-amber-300/80 flex items-center gap-2">
+            <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span>Centro da Cidade (Pontão do Lago Sul) - Brasília - DF</span>
+          </p>
+          <p className="text-amber-300/80 flex items-center gap-2">
+            <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span>WhatsApp: (61) 98888-7777</span>
+          </p>
+          <p className="text-amber-300/80 flex items-center gap-2">
+            <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span>contato@tostadocafe.com.br</span>
+          </p>
         </div>
 
         {/* Col 4 */}

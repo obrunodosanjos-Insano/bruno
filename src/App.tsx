@@ -18,12 +18,14 @@ import { CheckCircle, Coffee, Laptop, Sparkles, Gift, MapPin, Star } from 'lucid
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('menu');
-  
-  // Dark Mode State
+
+  // Dark Mode State with LocalStorage persistence
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const saved = localStorage.getItem('tostado_theme');
-    if (saved) return saved === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('tostado_theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   useEffect(() => {
@@ -36,8 +38,12 @@ export default function App() {
     }
   }, [isDarkMode]);
 
-  const handleToggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
+  const toggleDarkMode = () => {
+    setIsDarkMode((prev) => {
+      const next = !prev;
+      showToast(next ? 'Modo escuro ativado' : 'Modo claro ativado');
+      return next;
+    });
   };
   
   // Category & Tag filter states for Menu
@@ -181,17 +187,17 @@ export default function App() {
   const cartCount = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-[#fafafa] dark:bg-[#0c0a09] text-stone-900 dark:text-stone-100 font-sans antialiased selection:bg-stone-900 dark:selection:bg-amber-400 selection:text-white dark:selection:text-stone-950 pb-16 transition-colors duration-300">
+    <div className="min-h-screen bg-[#fafafa] dark:bg-[#141210] text-stone-900 dark:text-stone-100 font-sans antialiased selection:bg-stone-900 selection:text-white dark:selection:bg-amber-400 dark:selection:text-stone-950 pb-16 transition-colors duration-200">
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-stone-950 dark:bg-stone-900 text-white dark:text-stone-100 px-4 py-3 rounded-2xl border border-stone-800 shadow-2xl flex items-center gap-3 animate-slide-up">
-          <CheckCircle className="w-5 h-5 text-amber-400 shrink-0" />
+        <div className="fixed top-20 right-6 z-50 bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 px-4 py-3 rounded-2xl border border-stone-800 dark:border-stone-200 shadow-2xl flex items-center gap-3 animate-slide-up">
+          <CheckCircle className="w-5 h-5 text-amber-400 dark:text-amber-600 shrink-0" />
           <span className="text-xs font-bold">{toastMessage}</span>
         </div>
       )}
 
-      {/* Navigation */}
+      {/* Navigation with Dark Mode Toggle */}
       <Navbar
         cartCount={cartCount}
         onOpenCart={() => setIsCartOpen(true)}
@@ -201,7 +207,7 @@ export default function App() {
         userProfile={userProfile}
         onOpenProfile={() => setIsProfileOpen(true)}
         isDarkMode={isDarkMode}
-        onToggleDarkMode={handleToggleDarkMode}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       {/* Hero Section */}
@@ -224,18 +230,18 @@ export default function App() {
       />
 
       {/* Sticky Shortcuts Bar for Content Views */}
-      <div id="main-content-view" className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-y border-stone-200 py-3 shadow-2xs">
+      <div id="main-content-view" className="sticky top-16 sm:top-20 z-30 bg-white/95 dark:bg-[#181513]/95 backdrop-blur-md border-y border-stone-200/80 dark:border-stone-800/80 py-3 shadow-2xs transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1">
             <button
               onClick={() => setActiveSection('menu')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
                 activeSection === 'menu'
-                  ? 'bg-stone-950 text-white shadow-xs'
-                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80 border border-transparent'
+                  ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                  : 'bg-stone-100 dark:bg-stone-850 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent dark:border-stone-800'
               }`}
             >
-              <Coffee className="w-3.5 h-3.5 text-amber-300" />
+              <Coffee className="w-3.5 h-3.5 text-amber-300 dark:text-amber-600" />
               <span>Cardápio</span>
             </button>
 
@@ -243,11 +249,11 @@ export default function App() {
               onClick={() => setActiveSection('espaco')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
                 activeSection === 'espaco'
-                  ? 'bg-stone-950 text-white shadow-xs'
-                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80 border border-transparent'
+                  ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                  : 'bg-stone-100 dark:bg-stone-850 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent dark:border-stone-800'
               }`}
             >
-              <Laptop className="w-3.5 h-3.5 text-stone-300" />
+              <Laptop className="w-3.5 h-3.5 text-stone-300 dark:text-stone-400" />
               <span>O Espaço & Co-Working</span>
             </button>
 
@@ -255,8 +261,8 @@ export default function App() {
               onClick={() => setActiveSection('metodos')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
                 activeSection === 'metodos'
-                  ? 'bg-stone-950 text-white shadow-xs'
-                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80 border border-transparent'
+                  ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                  : 'bg-stone-100 dark:bg-stone-850 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent dark:border-stone-800'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -267,8 +273,8 @@ export default function App() {
               onClick={() => setActiveSection('fidelidade')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
                 activeSection === 'fidelidade'
-                  ? 'bg-stone-950 text-white shadow-xs'
-                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80 border border-transparent'
+                  ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                  : 'bg-stone-100 dark:bg-stone-850 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent dark:border-stone-800'
               }`}
             >
               <Gift className="w-3.5 h-3.5 text-amber-400" />
@@ -279,8 +285,8 @@ export default function App() {
               onClick={() => setActiveSection('localizacao')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
                 activeSection === 'localizacao'
-                  ? 'bg-stone-950 text-white shadow-xs'
-                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200/80 border border-transparent'
+                  ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                  : 'bg-stone-100 dark:bg-stone-850 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent dark:border-stone-800'
               }`}
             >
               <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />

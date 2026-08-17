@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
 import { MENU_ITEMS } from '../data/menuData';
 import { CategoryId, MenuItem } from '../types';
-import { Search, Sparkles, Coffee, Heart, Plus, Filter, Flame, Clock } from 'lucide-react';
+import { 
+  Search, 
+  Sparkles, 
+  Coffee, 
+  Heart, 
+  Plus, 
+  Filter, 
+  Flame, 
+  Clock, 
+  LayoutGrid, 
+  Laptop, 
+  CupSoda, 
+  Croissant, 
+  Cake, 
+  Bean, 
+  Star 
+} from 'lucide-react';
 
 interface MenuSectionProps {
   onSelectItem: (item: MenuItem) => void;
@@ -30,14 +46,14 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
   const activeTag = externalTag !== undefined ? externalTag : internalTag;
   const setActiveTag = externalSetTag || setInternalTag;
 
-  const categories: { id: CategoryId | 'all'; label: string; icon?: string }[] = [
-    { id: 'all', label: 'Todos' },
-    { id: 'combos', label: 'Combos Work' },
-    { id: 'cafes', label: 'Cafés & Lattes' },
-    { id: 'chas', label: 'Chás & Matcha' },
-    { id: 'salgados', label: 'Bakes & Toasts' },
-    { id: 'doces', label: 'Choux & Sobremesas' },
-    { id: 'graos', label: 'Grãos Especiais' },
+  const categories: { id: CategoryId | 'all'; label: string; Icon: React.ComponentType<{ className?: string }> }[] = [
+    { id: 'all', label: 'Todos', Icon: LayoutGrid },
+    { id: 'combos', label: 'Combos Work', Icon: Laptop },
+    { id: 'cafes', label: 'Cafés & Lattes', Icon: Coffee },
+    { id: 'chas', label: 'Chás & Matcha', Icon: CupSoda },
+    { id: 'salgados', label: 'Bakes & Toasts', Icon: Croissant },
+    { id: 'doces', label: 'Choux & Sobremesas', Icon: Cake },
+    { id: 'graos', label: 'Grãos Especiais', Icon: Bean },
   ];
 
   const tags = [
@@ -59,34 +75,34 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
   });
 
   return (
-    <section id="menu" className="py-12 sm:py-16 bg-white dark:bg-[#0c0a09] text-stone-900 dark:text-stone-100 border-b border-stone-200/60 dark:border-stone-800/80 transition-colors duration-300">
+    <section id="menu" className="py-12 sm:py-16 bg-white dark:bg-[#141210] text-stone-900 dark:text-stone-100 border-b border-stone-200/60 dark:border-stone-800/80 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Crisp Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 dark:text-amber-300 bg-stone-100 dark:bg-stone-900 px-3.5 py-1 rounded-full border border-stone-200 dark:border-stone-800">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-stone-800/80 px-3.5 py-1 rounded-full border border-stone-200 dark:border-stone-700">
             CARDÁPIO DE SELEÇÃO
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-stone-950 dark:text-white mt-3 mb-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-stone-950 dark:text-stone-50 mt-3 mb-2">
             Escolha sua experiência
           </h2>
         </div>
 
         {/* Search & Shortcut Filter Bar */}
-        <div className="bg-[#fafafa] dark:bg-stone-900/90 p-3 sm:p-4 rounded-2xl border border-stone-200/80 dark:border-stone-800 mb-8 max-w-3xl mx-auto space-y-3">
+        <div className="bg-[#fafafa] dark:bg-[#1c1917] p-3 sm:p-4 rounded-2xl border border-stone-200/80 dark:border-stone-800 mb-8 max-w-3xl mx-auto space-y-3">
           <div className="relative">
-            <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 dark:text-stone-500" />
+            <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-stone-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar por choux, salted cream, matcha, toast..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:border-stone-900 dark:focus:border-amber-400 text-xs font-medium"
+              className="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:border-stone-900 dark:focus:border-amber-400 text-xs font-medium"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-stone-400 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white font-bold"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-200 font-bold"
               >
                 Limpar
               </button>
@@ -101,8 +117,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                 onClick={() => setActiveTag(activeTag === tag.id ? null : tag.id)}
                 className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
                   activeTag === tag.id
-                    ? 'bg-stone-950 dark:bg-amber-400 text-white dark:text-stone-950 shadow-xs'
-                    : 'bg-white dark:bg-stone-950 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800'
+                    ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                    : 'bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-750 dark:border-stone-800 hover:bg-stone-100 dark:hover:bg-stone-800'
                 }`}
               >
                 {tag.label}
@@ -113,27 +129,31 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 
         {/* Category Tabs */}
         <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
-                selectedCategory === cat.id
-                  ? 'bg-stone-950 dark:bg-amber-400 text-white dark:text-stone-950 shadow-xs'
-                  : 'bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent'
-              }`}
-            >
-              <span>{cat.label}</span>
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const IconComponent = cat.Icon;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  selectedCategory === cat.id
+                    ? 'bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 shadow-xs'
+                    : 'bg-stone-100 dark:bg-stone-850 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-800 border border-transparent dark:border-stone-800'
+                }`}
+              >
+                <IconComponent className="w-3.5 h-3.5" />
+                <span>{cat.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Menu Grid */}
         {filteredItems.length === 0 ? (
-          <div className="text-center py-16 bg-[#fafafa] rounded-3xl border border-dashed border-stone-200 max-w-md mx-auto">
+          <div className="text-center py-16 bg-[#fafafa] dark:bg-stone-900/60 rounded-3xl border border-dashed border-stone-200 dark:border-stone-800 max-w-md mx-auto">
             <Coffee className="w-12 h-12 text-stone-400 mx-auto mb-3" />
-            <p className="text-stone-900 font-bold">Nenhum item encontrado com este filtro</p>
-            <p className="text-xs text-stone-500 mt-1">
+            <p className="text-stone-900 dark:text-stone-100 font-bold">Nenhum item encontrado com este filtro</p>
+            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
               Tente redefinir a busca para ver todas as deliciosas opções do menu.
             </p>
             <button
@@ -142,7 +162,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                 setActiveTag(null);
                 setSelectedCategory('all');
               }}
-              className="mt-4 px-5 py-2.5 bg-stone-950 text-white rounded-full text-xs font-bold"
+              className="mt-4 px-5 py-2.5 bg-stone-950 dark:bg-stone-100 text-white dark:text-stone-950 rounded-full text-xs font-bold"
             >
               Mostrar Todo o Cardápio
             </button>
@@ -152,11 +172,11 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="we-card rounded-3xl overflow-hidden flex flex-col justify-between group"
+                className="we-card rounded-3xl overflow-hidden flex flex-col justify-between group bg-white dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800"
               >
                 <div>
                   {/* Image Container */}
-                  <div className="relative h-56 w-full overflow-hidden bg-stone-100">
+                  <div className="relative h-56 w-full overflow-hidden bg-stone-100 dark:bg-stone-800">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -167,8 +187,9 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                     {/* Tags on Image */}
                     <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
                       {item.tags?.includes('destaque') && (
-                        <span className="bg-stone-950 text-white font-extrabold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
-                          ⭐ Favorito We
+                        <span className="bg-stone-950 text-white font-extrabold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+                          <Star className="w-2.5 h-2.5 fill-amber-300 text-amber-300" />
+                          <span>Favorito We</span>
                         </span>
                       )}
                       {item.tags?.includes('vegano') && (
@@ -184,27 +205,27 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                     </div>
 
                     {/* Price Tag Badge */}
-                    <div className="absolute bottom-3 right-3 bg-white/95 dark:bg-stone-900/95 backdrop-blur-md text-stone-950 dark:text-amber-300 font-bold text-sm px-3.5 py-1 rounded-full border border-stone-200/80 dark:border-stone-800 shadow-sm">
+                    <div className="absolute bottom-3 right-3 bg-white/95 dark:bg-stone-950/90 backdrop-blur-md text-stone-950 dark:text-stone-50 font-bold text-sm px-3.5 py-1 rounded-full border border-stone-200/80 dark:border-stone-700 shadow-sm">
                       R$ {item.price.toFixed(2).replace('.', ',')}
                     </div>
                   </div>
 
                   {/* Body Details */}
                   <div className="p-6">
-                    <h3 className="font-display font-bold text-lg text-stone-950 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                    <h3 className="font-display font-bold text-lg text-stone-950 dark:text-stone-50 mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                       {item.name}
                     </h3>
 
-                    <p className="text-xs text-stone-600 dark:text-stone-400 leading-relaxed mb-4 line-clamp-2 font-normal">
+                    <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 line-clamp-2 font-normal">
                       {item.description}
                     </p>
 
                     {/* Coffee Intensity / Time Metadata */}
-                    <div className="flex items-center gap-4 text-[11px] text-stone-500 dark:text-stone-400 pt-3 border-t border-stone-100 dark:border-stone-800/80">
+                    <div className="flex items-center gap-4 text-[11px] text-stone-500 dark:text-stone-400 pt-3 border-t border-stone-100 dark:border-stone-800">
                       {item.intensity && (
                         <span className="flex items-center gap-1 font-medium">
                           <Flame className="w-3.5 h-3.5 text-amber-500" />
-                          <span>Intensidade: <strong>{item.intensity}/5</strong></span>
+                          <span>Intensidade: <strong className="text-stone-800 dark:text-stone-200">{item.intensity}/5</strong></span>
                         </span>
                       )}
                       {item.prepTime && (
@@ -214,7 +235,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                         </span>
                       )}
                       {item.calories && (
-                        <span className="text-stone-400 ml-auto">
+                        <span className="text-stone-400 dark:text-stone-500 ml-auto">
                           {item.calories} kcal
                         </span>
                       )}
@@ -223,21 +244,21 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                 </div>
 
                 {/* Footer Action */}
-                <div className="p-4 bg-[#fafafa] border-t border-stone-100 flex items-center justify-between gap-3">
+                <div className="p-4 bg-[#fafafa] dark:bg-[#181513] border-t border-stone-100 dark:border-stone-800/80 flex items-center justify-between gap-3">
                   {item.customizable ? (
                     <button
                       onClick={() => onSelectItem(item)}
-                      className="w-full py-2.5 px-4 rounded-full bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                      className="w-full py-2.5 px-4 rounded-full bg-stone-950 dark:bg-stone-100 hover:bg-stone-800 dark:hover:bg-white text-white dark:text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                      <Sparkles className="w-3.5 h-3.5 text-amber-300 dark:text-amber-600" />
                       <span>Personalizar Item</span>
                     </button>
                   ) : (
                     <button
                       onClick={() => onQuickAdd(item)}
-                      className="w-full py-2.5 px-4 rounded-full bg-white hover:bg-stone-100 text-stone-900 border border-stone-200 font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                      className="w-full py-2.5 px-4 rounded-full bg-white dark:bg-stone-850 dark:bg-stone-900 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-900 dark:text-stone-100 border border-stone-200 dark:border-stone-700 font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                     >
-                      <Plus className="w-4 h-4 text-stone-900" />
+                      <Plus className="w-4 h-4 text-stone-900 dark:text-stone-100" />
                       <span>Adicionar ao Pedido</span>
                     </button>
                   )}
