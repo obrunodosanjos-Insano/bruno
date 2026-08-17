@@ -62,7 +62,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     }
 
     // Generate order code
-    const randomCode = 'WE-' + Math.floor(1000 + Math.random() * 9000);
+    const randomCode = 'ELGRANO-' + Math.floor(1000 + Math.random() * 9000);
     setOrderNumber(randomCode);
     setStep('confirmed');
     onClearCart();
@@ -255,7 +255,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <div className="p-5 bg-[#fafafa] dark:bg-stone-800 text-stone-900 dark:text-stone-100 rounded-3xl max-w-xs mx-auto border border-stone-200 dark:border-stone-700 space-y-3">
                 <p className="text-xs font-bold text-stone-900 dark:text-stone-100 font-display">Chave PIX Copia e Cola:</p>
                 <div className="p-2.5 bg-white dark:bg-stone-900 rounded-xl text-[10px] font-mono break-all text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
-                  00020126580014BR.GOV.BCB.PIX0136tostado-we-coffee-pix-key-99885204
+                  00020126580014BR.GOV.BCB.PIX0136el-grano-coffee-pix-key-99885204
                 </div>
                 <button
                   onClick={() => alert('Chave PIX copiada!')}

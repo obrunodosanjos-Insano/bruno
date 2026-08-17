@@ -218,7 +218,7 @@ export const MENU_ITEMS: MenuItem[] = [
   // GRÃOS & PACOTES
   {
     id: 'grao-sul-minas-250g',
-    name: 'Pacote de Grão Especial Tostado & We (250g)',
+    name: 'Pacote de Grão Especial El Grano (250g)',
     category: 'graos',
     price: 39.90,
     description: 'Variedade Catuaí Amarelo, pontuação 86 SCAA. Torra média com notas cítricas de laranja e melado de cana.',

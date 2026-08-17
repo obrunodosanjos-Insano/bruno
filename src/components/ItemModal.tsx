@@ -171,7 +171,7 @@ export const ItemModal: React.FC<ItemModalProps> = ({ item, onClose, onAddToCart
                           : 'bg-[#fafafa] dark:bg-stone-850 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-750'
                       }`}
                     >
-                      <span>Salted Cream We</span>
+                      <span>Salted Cream El Grano</span>
                       <span>+R$ 2,50</span>
                     </button>
                   </div>

@@ -23,7 +23,7 @@ export const LoyaltySection: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-stone-800/80 px-3.5 py-1 rounded-full border border-stone-200 dark:border-stone-700">
-            WE CLUB FIDELIDADE
+            EL GRANO CLUB FIDELIDADE
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold font-display text-stone-950 dark:text-stone-50 mt-3 mb-2">
             Acumule pontos e ganhe recompensas
@@ -79,7 +79,7 @@ export const LoyaltySection: React.FC = () => {
               {!registered ? (
                 <form onSubmit={handleRegister} className="space-y-2">
                   <label className="text-[11px] font-medium text-stone-600 dark:text-stone-300 block">
-                    Ative seu cartão We Club com WhatsApp e ganhe 100pts bônus:
+                    Ative seu cartão El Grano Club com WhatsApp e ganhe 100pts bônus:
                   </label>
                   <div className="flex gap-2">
                     <input
@@ -122,8 +122,8 @@ export const LoyaltySection: React.FC = () => {
                 {[
                   { pts: '300 pts', title: 'Espresso Especial ou Iced Tea', Icon: Coffee },
                   { pts: '600 pts', title: 'Choux Cream de Pistache ou Salted Latte', Icon: Cake },
-                  { pts: '1.200 pts', title: 'Pacote de Grãos Especial Tostado (250g)', Icon: Bean },
-                  { pts: '2.500 pts', title: 'Kit Exclusivo Caneca We + Coador V60', Icon: Gift },
+                  { pts: '1.200 pts', title: 'Pacote de Grãos Especial El Grano (250g)', Icon: Bean },
+                  { pts: '2.500 pts', title: 'Kit Exclusivo Caneca El Grano + Coador V60', Icon: Gift },
                 ].map((reward, i) => {
                   const IconComp = reward.Icon;
                   return (

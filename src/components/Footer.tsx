@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
               <TostadoLogoIcon className="w-5 h-5 text-stone-950" />
             </div>
             <span className="text-lg font-bold font-display text-amber-100 uppercase tracking-wide">
-              Tostado
+              El Grano
             </span>
           </div>
           <p className="text-amber-300/80 leading-relaxed">
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
           <ul className="space-y-1.5 text-amber-300/80">
             <li><a href="#menu" className="hover:text-amber-100 transition-colors">Cardápio de Cafés</a></li>
             <li><a href="#espaco" className="hover:text-amber-100 transition-colors">O Espaço (Trabalho & Estudos)</a></li>
-            <li><a href="#fidelidade" className="hover:text-amber-100 transition-colors">Clube Tostado (Fidelidade)</a></li>
+            <li><a href="#fidelidade" className="hover:text-amber-100 transition-colors">Clube El Grano (Fidelidade)</a></li>
             <li><a href="#localizacao" className="hover:text-amber-100 transition-colors">Localização & Contato</a></li>
           </ul>
         </div>
@@ -96,7 +96,7 @@ export const Footer: React.FC = () => {
           </p>
           <p className="text-amber-300/80 flex items-center gap-2">
             <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span>contato@tostadocafe.com.br</span>
+            <span>contato@elgranocafe.com.br</span>
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
 
       {/* Copyright */}
       <div className="border-t border-amber-900/60 py-4 text-center text-amber-400/60 text-[11px]">
-        <p>© {new Date().getFullYear()} Tostado - Cafeteria & Espaço de Trabalho. Todos os direitos reservados.</p>
+        <p>© {new Date().getFullYear()} El Grano - Cafeteria & Espaço de Trabalho. Todos os direitos reservados.</p>
       </div>
     </footer>
   );

@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-6 space-y-5 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-stone-800 dark:text-amber-300 text-[11px] font-bold tracking-wider uppercase">
               <Sparkles className="w-3.5 h-3.5 text-stone-900 dark:text-amber-300" />
-              <span>We Coffee & Tostado • Pontão Lago Sul</span>
+              <span>El Grano • Pontão Lago Sul</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-stone-950 dark:text-stone-50 leading-tight tracking-tight">
@@ -142,7 +142,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden">
                   <img
                     src={heroMinimalImg}
-                    alt="Coleção Minimalista We Coffee Tostado"
+                    alt="Coleção Minimalista El Grano"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />

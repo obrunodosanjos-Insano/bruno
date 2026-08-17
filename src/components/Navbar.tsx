@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="hidden md:flex items-center w-1/4">
         </div>
 
-        {/* Center: Brand Logo & Name "TOSTADO" */}
+        {/* Center: Brand Logo & Name "EL GRANO" */}
         <button 
           onClick={() => {
             if (setActiveSection) setActiveSection('menu');
@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <TostadoLogoIcon className="w-5 h-5 text-amber-300" />
           </div>
           <span className="text-xl sm:text-2xl font-bold tracking-tight text-stone-950 dark:text-stone-50 font-display">
-            TOSTADO
+            EL GRANO
           </span>
         </button>
 

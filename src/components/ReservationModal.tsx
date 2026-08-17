@@ -43,7 +43,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
       return;
     }
 
-    const code = 'WE-RES-' + Math.floor(100000 + Math.random() * 900000);
+    const code = 'ELGRANO-RES-' + Math.floor(100000 + Math.random() * 900000);
     setBookingCode(code);
     setSubmitted(true);
   };

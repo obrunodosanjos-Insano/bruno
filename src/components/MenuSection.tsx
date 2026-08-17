@@ -189,7 +189,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                       {item.tags?.includes('destaque') && (
                         <span className="bg-stone-950 text-white font-extrabold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                           <Star className="w-2.5 h-2.5 fill-amber-300 text-amber-300" />
-                          <span>Favorito We</span>
+                          <span>Favorito El Grano</span>
                         </span>
                       )}
                       {item.tags?.includes('vegano') && (

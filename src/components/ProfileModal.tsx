@@ -158,7 +158,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 )}
               </h3>
               <p className="text-xs text-stone-400">
-                {profile ? 'Sua conta personalizada no Tostado Coffee' : 'Cadastre-se para pedidos mais rápidos e vantagens'}
+                {profile ? 'Sua conta personalizada no El Grano Coffee' : 'Cadastre-se para pedidos mais rápidos e vantagens'}
               </p>
             </div>
           </div>
@@ -193,7 +193,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 <div className="flex justify-between items-start mb-3 relative z-10">
                   <div>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-amber-300 block mb-0.5">
-                      Clube Tostado Fidelidade
+                      Clube El Grano Fidelidade
                     </span>
                     <h4 className="text-sm font-bold font-display">{profile.name}</h4>
                   </div>
@@ -402,7 +402,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               <div className="space-y-3 pt-2">
                 <h4 className="font-bold font-display text-stone-900 dark:text-stone-100 text-sm flex items-center gap-2 border-b border-stone-200 dark:border-stone-700 pb-1.5">
                   <Coffee className="w-4 h-4 text-stone-800 dark:text-stone-200" />
-                  <span>2. Suas Preferências no Tostado</span>
+                  <span>2. Suas Preferências no El Grano</span>
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

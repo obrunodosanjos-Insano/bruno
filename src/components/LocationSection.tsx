@@ -51,7 +51,7 @@ export const LocationSection: React.FC = () => {
 
     const newReview = {
       name: name.trim(),
-      role: role.trim() || 'Cliente Tostado',
+      role: role.trim() || 'Cliente El Grano',
       rating: rating,
       text: comment.trim(),
       date: 'Agora mesmo'
@@ -182,7 +182,7 @@ export const LocationSection: React.FC = () => {
                 {feedbackSubmitted ? (
                   <div className="p-4 bg-emerald-950/80 border border-emerald-500/50 rounded-xl text-center space-y-1">
                     <p className="text-emerald-300 font-bold text-xs">✓ Feedback enviado com sucesso!</p>
-                    <p className="text-emerald-200/80 text-[11px]">Muito obrigado por avaliar o Tostado Coffee & Workspace.</p>
+                    <p className="text-emerald-200/80 text-[11px]">Muito obrigado por avaliar o El Grano Coffee & Workspace.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmitFeedback} className="space-y-3 text-xs">

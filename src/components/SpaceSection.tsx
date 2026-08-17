@@ -136,7 +136,7 @@ export const SpaceSection: React.FC<SpaceSectionProps> = ({ onOpenReservation })
               <div className="rounded-2xl overflow-hidden bg-white dark:bg-stone-800">
                 <img 
                   src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=800&q=80" 
-                  alt="Espaço Minimalista Tostado" 
+                  alt="Espaço Minimalista El Grano" 
                   className="w-full h-64 sm:h-72 object-cover rounded-2xl"
                   referrerPolicy="no-referrer"
                 />

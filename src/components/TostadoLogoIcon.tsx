@@ -16,7 +16,7 @@ export const TostadoLogoIcon: React.FC<TostadoLogoIconProps> = ({
       className={className}
       style={size ? { width: size, height: size } : undefined}
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Tostado Logo - Grão de Café Trincado"
+      aria-label="El Grano Logo - Grão de Café Trincado"
     >
       {/* Steam Flame above the bean */}
       <path
