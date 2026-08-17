@@ -1,0 +1,6 @@
+{
+  "name": "Tostado - Cafeteria & Torrefação",
+  "description": "Website da Tostado Cafeteria com cardápio interativo, pedidos online, reserva de mesas e espaço para estudos e trabalho.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
